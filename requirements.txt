@@ -1,0 +1,23 @@
+# -------- Core dependencies ----------
+numpy==1.26.4
+pandas==2.3.2
+scikit-learn==1.7.1
+pyyaml==6.0.2
+joblib==1.4.2
+
+# -------- PyTorch (GPU: CUDA 12.1 compatible) ----------
+torch==2.3.1+cu121
+torchvision==0.18.1+cu121
+torchaudio==2.3.1+cu121
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# -------- Lightning + Forecasting (兼容组合，无 pytorch-lightning) ----------
+lightning==2.2.1
+lightning-utilities==0.15.2
+pytorch-forecasting==1.5.0
+torchmetrics==1.1.1
+
+# -------- Utilities ----------
+matplotlib==3.9.0
+tqdm==4.66.4
+
