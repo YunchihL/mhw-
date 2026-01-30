@@ -53,6 +53,30 @@ def preprocess_data(df, config):
         if c in df.columns:
             df[c] = df[c].fillna(0)
 
+    # === 统一 isMHW 格式为字符串 "False"/"True" ===
+    if "isMHW" in df.columns:
+        # 将各种格式统一为字符串 "False" 或 "True"
+        def normalize_isMHW(x):
+            if isinstance(x, bool):
+                return "True" if x else "False"
+            elif isinstance(x, (int, float, np.integer, np.floating)):
+                # 0 -> "False", 1 -> "True", 其他值视为0
+                return "True" if float(x) == 1.0 else "False"
+            elif isinstance(x, str):
+                x_lower = x.lower()
+                if x_lower == "true" or x_lower == "1":
+                    return "True"
+                elif x_lower == "false" or x_lower == "0":
+                    return "False"
+                else:
+                    # 无法识别，默认 False
+                    return "False"
+            else:
+                return "False"
+
+        df["isMHW"] = df["isMHW"].apply(normalize_isMHW)
+        print(f"[INFO] isMHW 格式统一完成: {df['isMHW'].unique()}")
+
     # === 按 grid_id 进行排序 ===
     df = df.sort_values(by=["grid_id", "year", "month"]).reset_index(drop=True)
 

@@ -83,10 +83,10 @@ def main():
         default="results/predictions/counterfactual_rolling_predictions.csv",
     )
     parser.add_argument(
-    "--cf-data",
-    type=str,
-    required=True,
-    help="Counterfactual data CSV (mean_sst replaced, MHW vars zeroed)",
+        "--cf-data",
+        type=str,
+        required=True,
+        help="Counterfactual data CSV (mean_sst replaced, MHW vars zeroed)",
     )
     parser.add_argument("--batch-size", type=int, default=256)
     args = parser.parse_args()
