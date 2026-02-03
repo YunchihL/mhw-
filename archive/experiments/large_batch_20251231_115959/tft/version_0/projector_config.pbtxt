@@ -1,0 +1,10 @@
+embeddings {
+  tensor_name: "grid_id:05704"
+  metadata_path: "05704/grid_id/metadata.tsv"
+  tensor_path: "05704/grid_id/tensors.tsv"
+}
+embeddings {
+  tensor_name: "isMHW:05704"
+  metadata_path: "05704/isMHW/metadata.tsv"
+  tensor_path: "05704/isMHW/tensors.tsv"
+}
